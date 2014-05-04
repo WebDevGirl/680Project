@@ -37,7 +37,6 @@
 
 		$(document).ready(function () {
 			current_input = 0;
-			current_input = 0;
 
 			$('td.calc_method').on("click", function (){
 				calc_method = $( this ).data('calc_method');
@@ -60,11 +59,11 @@
 			});
 
 			$('td.calc_clear').on("click", function (){
-				$('td.calc_method').removeClass("selected");				
-				$('#calc_method_add').addClass("selected");
+				$('td.calc_method').removeClass("selected");
 
 				Calculator.calc.reset();
-				$('th#input_value').html(Calculator.calc.equal());
+				current_input = 0;
+				$('th#input_value').html(current_input);
 			});
 
 			$('td#calc_method_equal').on("click", function (){
@@ -107,31 +106,27 @@
 			  	<tr>
 			      <td class="calc_method" id="calc_method_add" data-calc_method="add">+</td>
 			      <td class="calc_method" data-calc_method="subtract">-</td>
+			      <td class="calc_method" data-calc_method="multiply">*</td>
 			      <td class="calc_method" data-calc_method="divide">/</td>
 			    </tr>			     
 			    <tr>
+			      <td class="calc_num">6</td>
 			      <td class="calc_num">7</td>
 			      <td class="calc_num">8</td>
 			      <td class="calc_num">9</td>
 			    </tr>
 			    <tr>
+			      <td class="calc_num">2</td>
+			      <td class="calc_num">3</td>
 			      <td class="calc_num">4</td>
 			      <td class="calc_num">5</td>
-			      <td class="calc_num">6</td>
+			      
 			    </tr>
 			    <tr>
 			      <td class="calc_num">1</td>
-			      <td class="calc_num">2</td>
-			      <td class="calc_num">3</td>
-			    </tr>
-			    <tr>
 			      <td class="calc_num">0</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			    <tr>
 			      <td id="calc_method_equal">=</td>
-			      <td colspan="2" class="calc_clear">C</td>
+			      <td colspan="2" class="calc_clear">C</td>			     
 			    </tr>
 			  </tbody>
 			</table>
