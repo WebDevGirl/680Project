@@ -23,7 +23,22 @@
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 		<link rel="stylesheet" href="main.css">
-	
+		 <script src="js/calculator.js"></script>
+
+		<!--  Help From: http://www.bootply.com/PangeaCake/110988 --> 
+		<script type="text/javascript">
+		$(document).ready(function () {
+			$('td.calc_num').on("click", function (){
+				val = parseInt($( this ).html());
+				$('th#input_value').html(Calculator.calc.add(val));
+			});
+			$('td.calc_clear').on("click", function (){
+				val = parseInt($( this ).html());
+				Calculator.calc.reset();
+				$('th#input_value').html(Calculator.calc.input_value);
+			});
+		});
+		</script>
 
     </head>
     <body>
@@ -52,23 +67,28 @@
 			    <tr><th colspan="4" id="input_value">0</th></tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <td class="calc_btn">7</td>
-			      <td class="calc_btn">8</td>
-			      <td class="calc_btn">9</td>
+			  	<tr>
+			      <td class="calc_method">+</td>
+			      <td class="calc_method">-</td>
+			      <td class="calc_method">/</td>
 			    </tr>
 			    <tr>
-			      <td class="calc_btn">4</td>
-			      <td class="calc_btn">5</td>
-			      <td class="calc_btn">6</td>
+			      <td class="calc_num">7</td>
+			      <td class="calc_num">8</td>
+			      <td class="calc_num">9</td>
 			    </tr>
 			    <tr>
-			      <td class="calc_btn">1</td>
-			      <td class="calc_btn">2</td>
-			      <td class="calc_btn">3</td>
+			      <td class="calc_num">4</td>
+			      <td class="calc_num">5</td>
+			      <td class="calc_num">6</td>
 			    </tr>
 			    <tr>
-			      <td class="calc_btn" colspan="4">Clear</td>
+			      <td class="calc_num">1</td>
+			      <td class="calc_num">2</td>
+			      <td class="calc_num">3</td>
+			    </tr>
+			    <tr>
+			      <td colspan="4" class="calc_clear">Clear</td>
 			    </tr>
 			  </tbody>
 			</table>
