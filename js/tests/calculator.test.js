@@ -32,5 +32,43 @@ describe("Calculator ::", function() {
             testfunc.add(1);
             expect(testfunc.input_value()).toEqual(2);
         });
-    });
+
+        it("One and One And One Should Be Three", function(){
+            testfunc.add(1);
+            testfunc.add(1);
+            testfunc.add(1);
+            expect(testfunc.input_value()).toEqual(3);
+        });
+
+        it("Zero and Neg One Should Be Neg One", function(){
+            testfunc.add(-1);
+            expect(testfunc.input_value()).toEqual(-1);
+        });
+
+        it("Neg One and One Should Be Zero", function(){
+            testfunc.add(-1);
+            testfunc.add(1);
+            expect(testfunc.input_value()).toEqual(0);
+        });
+
+        it("One and Neg One Should Be Zero", function(){
+            testfunc.add(1);
+            testfunc.add(-1);
+            expect(testfunc.input_value()).toEqual(0);
+        });
+
+        it("Two and Three Should Be Five", function(){
+            testfunc.add(2);
+            testfunc.add(3);
+            expect(testfunc.input_value()).toEqual(5);
+        });
+
+        it("Three and Two Should Be Five", function(){
+            testfunc.add(3);
+            testfunc.add(2);
+            expect(testfunc.input_value()).toEqual(5);
+        });
+    }); // End Add()  
+
+
 });
