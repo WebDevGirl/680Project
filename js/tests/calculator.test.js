@@ -68,7 +68,57 @@ describe("Calculator ::", function() {
             testfunc.add(2);
             expect(testfunc.input_value()).toEqual(5);
         });
-    }); // End Add()  
+    }); // End Add()
+
+    /* SUBTRACT() */ 
+    describe("Subtract() ::", function() {
+        it("Zero subtract One Should Be Neg One", function(){
+        testfunc.subtract(1);
+            expect(testfunc.input_value()).toEqual(-1);
+        });
+
+        it("Subtract One subtract One Should Be Zero", function(){
+            testfunc.subtract(1);
+            testfunc.subtract(1);
+            expect(testfunc.input_value()).toEqual(-2);
+        });
+
+        it("Subtract One subtract One subtract One Should Be Neg 3", function(){
+            testfunc.subtract(1);
+            testfunc.subtract(1);
+            testfunc.subtract(1);
+            expect(testfunc.input_value()).toEqual(-3);
+        });
+
+        it("Zero subtract Neg One Should Be One", function(){
+            testfunc.subtract(-1);
+            expect(testfunc.input_value()).toEqual(1);
+        });
+
+        it("Subtract Neg One subtract One Should Be Zero", function(){
+            testfunc.subtract(-1);
+            testfunc.subtract(1);
+            expect(testfunc.input_value()).toEqual(0);
+        });
+
+        it("Subtract One subtract Neg One Should Be Zero", function(){
+            testfunc.subtract(1);
+            testfunc.subtract(-1);
+            expect(testfunc.input_value()).toEqual(0);
+        });
+
+        it("Subtract Neg Two subtract Three Should Be Neg One", function(){
+            testfunc.subtract(-2);
+            testfunc.subtract(3);
+            expect(testfunc.input_value()).toEqual(-1);
+        });
+
+        it("Subtract Neg Three subtract Two Should Be One", function(){
+            testfunc.subtract(-3);
+            testfunc.subtract(2);
+            expect(testfunc.input_value()).toEqual(1);
+        });
+    }); // End Subtract()
 
 
 });

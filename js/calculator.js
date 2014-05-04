@@ -15,13 +15,21 @@ Calculator.calc = {
         _input_value += value;
         return _input_value
     },
+    subtract: function subtract(value) {
+        _input_value -= value;
+        return _input_value
+    },
 };
 
 Calculator.method = {
     init: function init() {
        _current = "add";
     },
-    current: function current() {
+    get: function get() {
+        return _current;
+    },
+    set: function set(value) {
+        _current = value;
         return _current;
     },
 };
