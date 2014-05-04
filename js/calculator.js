@@ -12,11 +12,22 @@ Calculator.calc = {
         _value = 0;
     },
     add: function add(value) {
-        _value += parseInt(value);
+        _value += parseFloat(value);
         return _value
     },
     subtract: function subtract(value) {
-        _value -=  parseInt(value);
+        _value -=  parseFloat(value);
+        return _value
+    },
+    multiply: function multiply(value) {
+        _value *=  parseFloat(value);
+        return _value
+    },
+    divide: function divide(value) {
+        if (value == 0 && _value != 0) throw new Error("Can Not Divide By Zero");
+        if (value == 0 && _value == 0) return 0; 
+
+        _value /=  parseFloat(value);
         return _value
     },
 };
