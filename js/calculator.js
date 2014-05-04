@@ -2,22 +2,22 @@ if (typeof Calculator == 'undefined') { Calculator = {}; }
  
 Calculator.calc = {
     init: function init() {
-       _input_value = 0;
+       _value = 0;
        Calculator.method.init();
     },
-    input_value: function input_value() {
-       return _input_value
+    equal: function equal() {
+       return _value;
     },
     reset: function reset() {
-        _input_value = 0;
+        _value = 0;
     },
     add: function add(value) {
-        _input_value += parseInt(value);
-        return _input_value
+        _value += parseInt(value);
+        return _value
     },
     subtract: function subtract(value) {
-        _input_value -=  parseInt(value);
-        return _input_value
+        _value -=  parseInt(value);
+        return _value
     },
 };
 
