@@ -27,13 +27,41 @@
 
 		<!--  Help From: http://www.bootply.com/PangeaCake/110988 --> 
 		<script type="text/javascript">
+
+		calc_methods = {
+			"add" : Calculator.calc.add,
+			"subtract" : Calculator.calc.subtract,
+			"divide" : Calculator.calc.divide
+		}
+
 		$(document).ready(function () {
-			$('td.calc_num').on("click", function (){
-				val = parseInt($( this ).html());
-				$('th#input_value').html(Calculator.calc.add(val));
+			current_input = 0;
+			current_input = 0;
+
+			$('td.calc_method').on("click", function (){
+				calc_method = $( this ).data('calc_method');
+				Calculator.method.set(calc_method);
+
+				m = Calculator.method.get();
+				$('th#input_value').html(calc_methods[m](current_input));
+
+				$('td.calc_method').removeClass("selected");
+				$( this ).addClass("selected");
+
+				current_input = 0;
+				$('th#input_value').html(Calculator.calc.input_value());
 			});
+
+			$('td.calc_num').on("click", function (){
+				val = $( this ).html();
+				current_input = (current_input == "0")?val:(current_input+val);
+				$('th#input_value').html(current_input);
+			});
+
 			$('td.calc_clear').on("click", function (){
-				val = parseInt($( this ).html());
+				$('td.calc_method').removeClass("selected");				
+				$('#calc_method_add').addClass("selected");
+
 				Calculator.calc.reset();
 				$('th#input_value').html(Calculator.calc.input_value);
 			});
@@ -68,9 +96,9 @@
 			  </thead>
 			  <tbody>
 			  	<tr>
-			      <td class="calc_method">+</td>
-			      <td class="calc_method">-</td>
-			      <td class="calc_method">/</td>
+			      <td class="calc_method" id="calc_method_add" data-calc_method="add">+</td>
+			      <td class="calc_method" data-calc_method="subtract">-</td>
+			      <td class="calc_method" data-calc_method="divide">/</td>
 			    </tr>
 			    <tr>
 			      <td class="calc_num">7</td>

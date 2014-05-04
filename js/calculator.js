@@ -12,11 +12,11 @@ Calculator.calc = {
         _input_value = 0;
     },
     add: function add(value) {
-        _input_value += value;
+        _input_value += parseInt(value);
         return _input_value
     },
     subtract: function subtract(value) {
-        _input_value -= value;
+        _input_value -=  parseInt(value);
         return _input_value
     },
 };

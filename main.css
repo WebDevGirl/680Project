@@ -12,3 +12,5 @@ th {
 table {
   margin: 20px;
 }
+
+td.selected {background-color:red;}
